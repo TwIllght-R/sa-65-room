@@ -113,7 +113,7 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={mdTheme}>
-        <Box sx={{ display: "flex" }} className = "kobeni">
+        <Box sx={{ display: "flex" }} >
           
           <CssBaseline />
           <AppBar position="absolute" open={open}>
