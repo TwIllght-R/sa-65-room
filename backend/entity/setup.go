@@ -53,10 +53,14 @@ func SetupDatabase() {
 	type2 := Room_type{
 		Room_type_name: "Twin",
 	}
-
 	db.Model(&Room_type{}).Create(&type2)
+	type3 := Room_type{
+		Room_type_name: "Quad",
+	}
 
-	//Resolution Data
+	db.Model(&Room_type{}).Create(&type3)
+
+	//price Data
 	price1 := Room_price{
 		Price: "3000",
 	}
@@ -67,6 +71,11 @@ func SetupDatabase() {
 	}
 	db.Model(&Room_price{}).Create(&price2)
 
+	price3 := Room_price{
+		Price: "8000",
+	}
+	db.Model(&Room_price{}).Create(&price3)
+
 	//set_of
 	set1 := Set_of_furniture{
 		Set_of_furniture_title: "Set1",
@@ -75,28 +84,86 @@ func SetupDatabase() {
 	set2 := Set_of_furniture{
 		Set_of_furniture_title: "Set2",
 	}
-	db.Model(&Set_of_furniture{}).Create(&set1)
-
-	furniture1 := Furniture{
-		Furniture_type: "Table1",
-
-		Set_of_furniture: set1,
+	db.Model(&Set_of_furniture{}).Create(&set2)
+	set3 := Set_of_furniture{
+		Set_of_furniture_title: "Set3",
 	}
-	db.Model(&Furniture{}).Create(&furniture1)
 
-	furniture2 := Furniture{
-		Furniture_type:   "Table2",
-		Set_of_furniture: set2,
-	}
-	db.Model(&Furniture{}).Create(&furniture2)
-
+	db.Model(&Set_of_furniture{}).Create(&set3)
 	db.Model(&Furniture{}).Create(&Furniture{
-		Furniture_type:   "table3",
+		Furniture_type:   "table1",
 		Set_of_furniture: set1,
 	})
 
-	// === Query
-	//
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "fan1",
+		Set_of_furniture: set1,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "bed1",
+		Set_of_furniture: set1,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "chair1",
+		Set_of_furniture: set1,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "led lightning1",
+		Set_of_furniture: set1,
+	})
+
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "table2",
+		Set_of_furniture: set2,
+	})
+
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "Air2",
+		Set_of_furniture: set2,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "Tv2",
+		Set_of_furniture: set2,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "bed2",
+		Set_of_furniture: set2,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "chair2",
+		Set_of_furniture: set2,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "led lightning2",
+		Set_of_furniture: set2,
+	})
+
+	// furniture set3
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "table3",
+		Set_of_furniture: set3,
+	})
+
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "Air3",
+		Set_of_furniture: set3,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "Tv3",
+		Set_of_furniture: set3,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "bed3",
+		Set_of_furniture: set3,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "chair3",
+		Set_of_furniture: set3,
+	})
+	db.Model(&Furniture{}).Create(&Furniture{
+		Furniture_type:   "led lightning3",
+		Set_of_furniture: set3,
+	})
 	db.Model(&Room{}).Create(&Room{
 		Room_type:        type1,
 		Room_price:       price1,

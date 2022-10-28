@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import { Container } from '@mui/system';
+import CssBaseline from '@mui/material/CssBaseline';
 
 
 const steps = [
@@ -42,16 +44,20 @@ function Home() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
   return (
-    <><Box
+    <React.Fragment>
+       <CssBaseline />
+    <Container maxWidth = "sm"><Box
       component="img"
       sx={{
         height: 'auto',
-        width: 0.75,
+        width: 1,
         maxHeight: { xs: 1200, md: 1200 },
         maxWidth: { xs: 1200, md: 1200 },
+        border : 1
       }}
+    //  justifyContent = "center"
       alt="The house from the offer."
-      src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2" /><Box sx={{ maxWidth: 1200, flexGrow: 1 }}>
+      src="https://scontent.fbkk20-1.fna.fbcdn.net/v/t39.30808-6/313332206_522059483263270_2930372894817026389_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=baUOAPD1CVgAX_V0Nya&_nc_ht=scontent.fbkk20-1.fna&oh=00_AfDT7dWiDl9I1omjj-xTGcV110ObiGuG71P1HqWN-kWL1g&oe=63606924" /><Box sx={{ maxWidth: 1200, flexGrow: 1 }}>
         <Paper
           square
           elevation={0}
@@ -67,7 +73,7 @@ function Home() {
           
           <Typography>{steps[activeStep].label}</Typography>
         </Paper>
-        <Box sx={{ height: 400, maxWidth: 500, width: '50%', p: 2 }}>
+        <Box sx={{ height: 400, maxWidth: 500, width: '30%', p: 2  }}>
           {steps[activeStep].description}
         </Box>
         <MobileStepper
@@ -95,7 +101,8 @@ function Home() {
             )}
             Back
           </Button>} />
-      </Box></>
+      </Box></Container>
+      </React.Fragment>
 );
 }
     

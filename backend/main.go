@@ -81,6 +81,9 @@ func main() {
 	r.POST("/Furnitures", controller.CreateFurniture)
 	r.PATCH("/Furnitures", controller.UpdateFurniture)
 	r.DELETE("/Furnitures/:id", controller.DeleteFurniture)
+
+	//
+
 	// Run the server
 	r.POST("/signup1", controller.CreateLoginEmployee)
 	// login User Route

@@ -30,6 +30,8 @@ import {
   CreateRooms,
   GetFurniture,
   GetRoom,
+  //
+  
   
 } from "../Services/HttpClientService";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -44,19 +46,19 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 function RoomCreate() {
 
   const columns: GridColDef[] = [
-    { field: "ID", headerName: "ลำดับ", width: 50 },
+    { field: "ID", headerName: "ลำดับ", width: 150 },
 
 
     {
       field: "Furniture_type",
       headerName: "เฟอนิเจอร์",
-      width: 150,
+      width: 350,
       valueFormatter: (params) => params.value.ID,
     },
     {
       field: "Set_of_furniture_id",
       headerName: "เซทเฟอนิเจอร์",
-      width: 150,
+      width: 350,
       valueFormatter: (params) => params.value.Set_of_furniture_title,
     },
   ];
@@ -123,6 +125,8 @@ function RoomCreate() {
       setFurnitures(res);
     } 
   };
+  //
+
 
   //
 
@@ -133,6 +137,7 @@ function RoomCreate() {
     getRoom_price();
     getSet_of_furniture();
     Furnitures();
+    
    
   }, []);
 
@@ -216,7 +221,7 @@ function RoomCreate() {
                 value={room.Room_type_id + ""}
                 onChange={handleChange}
                 inputProps={{
-                  name: "Room_price_id",
+                  name: "Room_type_id",
                   
                   
                 }}
@@ -241,7 +246,7 @@ function RoomCreate() {
                 value={room.Room_price_id + ""}
                 onChange={handleChange}
                 inputProps={{
-                  name: "Room_type_id",
+                  name: "Room_price_id",
                   
                   
                 }}
@@ -307,6 +312,7 @@ function RoomCreate() {
       
       <div style={{ height: 400, width: "100%", marginTop: "20px" }}>
           <DataGrid
+            //initialState={{  }}
           
             rows={furnitures }
             getRowId={(row) => row.ID}

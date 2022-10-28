@@ -17,7 +17,7 @@ function Rooms() {
   }, []);
 
   const Rooms = async () => {
-    let res = await GetRoom(); console.log(res)
+    let res = await GetRoom(); 
     if (res) {
       setRooms(res);
     } 
