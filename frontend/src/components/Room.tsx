@@ -5,40 +5,45 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { FurnitureInterface } from "../models/IFurniture";
-import { GetFurniture } from "../Services/HttpClientService";
+import { RoomInterface } from "../models/IRoom";
+import { GetRoom } from "../Services/HttpClientService";
 
 
-function Furnitures() {
-  const [furnitures, setFurnitures] = useState<FurnitureInterface[]>([]);
+function Rooms() {
+  const [room, setRooms] = useState<RoomInterface[]>([]);
 
   useEffect(() => {
-    Furnitures();
+    Rooms();
   }, []);
 
-  const Furnitures = async () => {
-    let res = await GetFurniture();
-    if (res) {  
-      setFurnitures(res);
+  const Rooms = async () => {
+    let res = await GetRoom(); console.log(res)
+    if (res) {
+      setRooms(res);
     } 
   };
 
   const columns: GridColDef[] = [
     { field: "ID", headerName: "ลำดับ", width: 50 },
-
-
     {
-      field: "Furniture_type",
-      headerName: "เฟอนิเจอร์",
-      width: 150,
-      valueFormatter: (params) => params.value.ID,
+      field: "Room_type",
+      headerName: "ประเภท",
+      width: 250,
+      valueFormatter: (params) => params.value.Room_type_name,
     },
     {
-      field: "Set_of_furniture_id",
+      field: "Room_price",
+      headerName: "ราคา",
+      width: 150,
+      valueFormatter: (params) => params.value.Price,
+    },
+    {
+      field: "Set_of_furniture",
       headerName: "เซทเฟอนิเจอร์",
       width: 150,
       valueFormatter: (params) => params.value.Set_of_furniture_title,
     },
+    
   ];
 
   return (
@@ -73,7 +78,7 @@ function Furnitures() {
         </Box>
         <div style={{ height: 400, width: "100%", marginTop: "20px" }}>
           <DataGrid
-            rows={furnitures}
+            rows={room}
             getRowId={(row) => row.ID}
             columns={columns}
             pageSize={5}
@@ -85,4 +90,4 @@ function Furnitures() {
   );
 }
 
-export default Furnitures;
+export default Rooms;
